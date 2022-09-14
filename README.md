@@ -55,26 +55,45 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 
 ### PROGRAM 
+```
+#define echopin 3
+#define trigpin  2
+long duration;
+int distance;
+void setup()
+{
+  pinMode(trigpin,OUTPUT);
+  pinMode(echopin,INPUT);
+  Serial.begin(9600);
+}
+void loop()
+{
+  digitalWrite(trigpin,LOW);
+  delay(10);
+  digitalWrite(trigpin,HIGH);
+  delay(10);
+  digitalWrite(trigpin,LOW);
+  
+  duration = pulseIn(echopin,HIGH);
+  
+  distance = duration * 0.034/2;
+  //delay(500);
+  Serial.print("Distance  =  ");
+  Serial.print(distance);
+  Serial.println("CM");
+}
 
 
 
-
-
-
+```
 ### Distance vs measurement table 
 
 			
  
 			
 			
-			
+![table](https://user-images.githubusercontent.com/93901857/190162934-93bfbd05-0140-43dd-a092-d45fe23754d4.jpg)
 
-![image](https://user-images.githubusercontent.com/36288975/190135379-52ebacd5-ccd5-460f-a4cd-4d0ad1d9b179.png)
-
-			
-			
-			
-			
 			
 			Average error = sum/ number of readings 
  
@@ -88,6 +107,6 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 ### RESULTS
 
-
+This the  distance value is measured in "CM" using ultrasonic sensor.
 
  
